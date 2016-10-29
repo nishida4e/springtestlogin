@@ -9,4 +9,5 @@ public class SpringtestloginApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringtestloginApplication.class, args);
 	}
+	
 }
