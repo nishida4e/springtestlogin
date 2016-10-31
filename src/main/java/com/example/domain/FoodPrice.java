@@ -18,9 +18,9 @@ public class FoodPrice {
 	private Integer id;
 	private String name;
 	private Integer price;
-	
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = true, name = "username")
-    private User user;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(nullable = true, name = "username")
+	private User user;
 
 }

@@ -16,11 +16,11 @@ import java.util.List;
 @Table(name = "users")
 @ToString(exclude = "foodprice")
 public class User {
-    @Id
-    private String username;
-    @JsonIgnore
-    private String encodedPassword;
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
-    private List<FoodPrice> foodprice;
+	@Id
+	private String username;
+	@JsonIgnore
+	private String encodedPassword;
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+	private List<FoodPrice> foodprice;
 }
