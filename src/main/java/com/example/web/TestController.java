@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.domain.FoodPrice;
 import com.example.service.FoodPriceService;
+import com.example.service.LoginUserDetails;
 
 @Controller
 @RequestMapping("menu")
@@ -41,7 +43,8 @@ public class TestController {
 	}
 
 	@PostMapping(path = "create")
-	String create(Integer id, @Validated FoodPriceForm form, BindingResult result) {
+	String create(Integer id, @Validated FoodPriceForm form, BindingResult result,
+            @AuthenticationPrincipal LoginUserDetails userDetails) {
 
 		if (result.hasErrors()) {
 			return "reg";
@@ -50,7 +53,7 @@ public class TestController {
 		FoodPrice fp = new FoodPrice();
 		BeanUtils.copyProperties(form, fp);
 		fp.setId(id);
-		foodService.create(fp);
+		foodService.create(fp, userDetails.getUser());
 		return "redirect:/menu";
 	}
 

@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.domain.FoodPrice;
+import com.example.domain.User;
 import com.example.repository.FoodPriceJdbcRepository;
 import com.example.repository.FoodPriceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,8 @@ public class FoodPriceService {
 		return fpRepo.findOne(id);
 	}
 
-	public FoodPrice create(FoodPrice fp) {
+	public FoodPrice create(FoodPrice fp, User user) {
+		fp.setUser(user);
 		FoodPrice ret = fpRepo.save(fp);
 		// fpRepo.rollbacktest();
 		return ret;
