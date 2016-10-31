@@ -23,9 +23,6 @@ public class TestController {
 	@Autowired
 	FoodPriceService foodService;
 	
-	@Autowired
-	UserServiceTest userService;
-
 	@GetMapping
 	String init(Model model) {
 		List<FoodPrice> foodList = foodService.findAll();
@@ -72,10 +69,15 @@ public class TestController {
 		return "redirect:/menu";
 	}
 	
+	/*
+	@Autowired
+	UserServiceTest userService;
+	
 	@PostMapping(path = "test")
 	String test() {
 		userService.delete("koko1");
 		return "redirect:/menu";
 	}
+	*/
 
 }

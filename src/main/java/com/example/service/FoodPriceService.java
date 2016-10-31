@@ -27,7 +27,6 @@ public class FoodPriceService {
 	public FoodPrice create(FoodPrice fp, User user) {
 		fp.setUser(user);
 		FoodPrice ret = fpRepo.save(fp);
-		// fpRepo.rollbacktest();
 		return ret;
 	}
 

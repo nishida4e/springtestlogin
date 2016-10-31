@@ -19,15 +19,15 @@ public class UserServiceTest {
 		return userRepo.findAll();
 	}
 
-	public User findOne(String id) {
-		return userRepo.findOne(id);
+	public User findOne(String username) {
+		return userRepo.findOne(username);
 	}
 
 	public User create(User user) {
 		return userRepo.save(user);
 	}
 
-	public void delete(String id) {
-		userRepo.delete(id);
+	public void delete(String username) {
+		userRepo.delete(username);
 	}
 }
