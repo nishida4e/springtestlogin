@@ -17,6 +17,7 @@ public class FoodPriceJdbcRepository {
 	@Autowired
 	NamedParameterJdbcTemplate jdbcTemplate;
 
+	/*
 	private static final RowMapper<FoodPrice> foodRowMapper = (rs, i) -> {
 		Integer id = rs.getInt("id");
 		String name = rs.getString("name");
@@ -53,5 +54,6 @@ public class FoodPriceJdbcRepository {
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		jdbcTemplate.update("DELETE FROM foodprice WHERE id=:id", param);
 	}
+	*/
 
 }

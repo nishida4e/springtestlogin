@@ -3,10 +3,7 @@ package com.example.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -21,5 +18,9 @@ public class FoodPrice {
 	private Integer id;
 	private String name;
 	private Integer price;
+	
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = true, name = "username")
+    private User user;
 
 }
