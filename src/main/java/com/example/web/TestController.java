@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.domain.FoodPrice;
 import com.example.service.FoodPriceService;
 import com.example.service.LoginUserDetails;
+import com.example.service.UserServiceTest;
 
 @Controller
 @RequestMapping("menu")
@@ -21,6 +22,9 @@ public class TestController {
 
 	@Autowired
 	FoodPriceService foodService;
+	
+	@Autowired
+	UserServiceTest userService;
 
 	@GetMapping
 	String init(Model model) {
@@ -65,6 +69,12 @@ public class TestController {
 
 	@PostMapping(path = "back")
 	String back() {
+		return "redirect:/menu";
+	}
+	
+	@PostMapping(path = "test")
+	String test() {
+		userService.delete("koko1");
 		return "redirect:/menu";
 	}
 
