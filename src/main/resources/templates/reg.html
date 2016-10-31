@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <title>Getting Started: Serving Web Content</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -18,6 +19,16 @@
 
 		<form th:action="@{/menu/back}" method="post">
 			<input type="submit" class="btn btn-default" value="戻る" />
+		</form>
+
+		<br />
+
+		<p>
+			<span sec:authentication="principal.user.username">吉野家</span>
+			さんがログイン中
+		</p>
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" class="btn btn-default btn-xs" value="ログアウト" />
 		</form>
 
 		<hr />
